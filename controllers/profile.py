@@ -993,12 +993,12 @@ def invoice():
     )
 
     items_header = THEAD(TR(
-        TH('Product Name'),
-        TH('Description'),
-        TH('Quantity'),
-        TH('Price incl. VAT'),
-        TH(SPAN('Subtotal', _class='pull-right')),
-        TH(SPAN('Tax rate', _class='pull-right')),
+        TH(T('Product Name')),
+        TH(T('Description')),
+        TH(T('Quantity')),
+        TH(T('Price incl. VAT')),
+        TH(SPAN(T('Subtotal'), _class='pull-right')),
+        TH(SPAN(T('Tax rate'), _class='pull-right')),
     ))
     items = TABLE(items_header, _class="table table-striped")
     rows = invoice.get_invoice_items_rows()
