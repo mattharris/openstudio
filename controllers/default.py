@@ -182,7 +182,7 @@ def user():
         login_link = A(T("Click here to log in"),
                        _href=URL(args='login'))
         login_message = DIV(
-            B("Can't register?"), BR(),
+            B(T("Can't register?")), BR(),
             T("In case you can't register because your email address already has an account, click"), ' ',
             A(T("here"),
               _href=URL(args='request_reset_password')), ' ',

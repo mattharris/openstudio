@@ -152,25 +152,25 @@
         </div>
     </div>
 
-    <div class='invoice grey'>INVOICE</div><br>
+    <div class='invoice grey'>{{T('INVOICE')}}</div><br>
 
     <table class="table-info">
         <tr>
-            <td class="grey bold">INVOICE #</td>
+            <td class="grey bold">{{T('INVOICE #'}}</td>
             <td>{{=invoice.InvoiceID}}</td>
         </tr>
         <tr>
-            <td class="grey bold">ISSUED </td>
+            <td class="grey bold">{{T('ISSUED')}}</td>
             <td>{{=invoice.DateCreated.strftime(DATE_FORMAT)}}</td>
         </tr>
         <tr>
-            <td class="grey bold">DUE DATE </td>
+            <td class="grey bold">{{T('DUE DATE')}}</td>
             <td>{{=invoice.DateDue.strftime(DATE_FORMAT)}}</td>
         </tr>
     </table>
 
     <div>
-        <span class="grey bold">BILL TO</span><br>
+        <span class="grey bold">{{T('BILL TO')}}</span><br>
         {{ if invoice.CustomerCompany: }}
             {{ =invoice.CustomerCompany }}<br>
         {{ pass }}
@@ -191,7 +191,7 @@
 
     {{ if invoice['Description']: }}
         <div id="description" class='clear'>
-            <span class="bold grey">SUMMARY</span><br>
+            <span class="bold grey">{{T('SUMMARY')}}</span><br>
             <span class="grey">{{=invoice['Description']}}</span>
         </div>
     {{pass}}
@@ -200,12 +200,12 @@
     <table class="table-items">
         <thead class="grey">
             <tr>
-                <th>PRODUCT NAME</th>
-                <th>DESCRIPTION</th>
-                <th><span class="right">QTY</span></th>
-                <th><span class="right">PRICE INCL VAT</span></th>
-                <th><span class="right">SUBTOTAL</span></th>
-                <th class="taxrate"><span class="right">TAX RATE</span></th>
+                <th>{{T('PRODUCT NAME')}}</th>
+                <th>{{T('DESCRIPTION')}}</th>
+                <th><span class="right">{{T('QTY')}}</span></th>
+                <th><span class="right">{{T('PRICE INCL VAT')}}</span></th>
+                <th><span class="right">{{T('SUBTOTAL')}}</span></th>
+                <th class="taxrate"><span class="right">{{T('TAX RATE')}}</span></th>
             </tr>
         </thead>
         <tbody>
@@ -223,7 +223,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><span class="right">Subtotal</span></td>
+            <td><span class="right">{{T('Subtotal')}}</span></td>
             <td><span class="right">{{ =amounts['TotalPrice'] }}</span></td>
             <td></td>
         </tr>
@@ -241,7 +241,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td class="border-top"><span class="right">Total</span></td>
+            <td class="border-top"><span class="right">{{T('Total')}}</span></td>
             <td class="border-top"><span class="right">{{ =amounts['TotalPriceVAT'] }}</span></td>
             <td></td>
         </tr>
@@ -253,7 +253,7 @@
 
     {{ if invoice['Terms']: }}
         <div id="terms" class="clear grey">
-            <span id="terms-header" class="bold">TERMS AND CONDITIONS</span>
+            <span id="terms-header" class="bold">{{T('TERMS AND CONDITIONS')}}</span>
             {{ =XML(invoice['Terms']) }}
         </div>
     {{pass}}
