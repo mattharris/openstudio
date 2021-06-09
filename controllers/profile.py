@@ -1052,15 +1052,17 @@ def invoice():
             _class='pull-right'
     )
 
-    if invoice.invoice.Status == 'sent':
-        header_tools.append(os_gui.get_button(
-            'noicon',
-            URL('mollie', 'invoice_pay', vars={'iID':iID}),
-            title=T("Pay now"),
-            _class='pull-right',
-            btn_class="btn-success",
-            btn_size=''
-        ))
+    online_payment_provider = get_sys_property('online_payment_provider')
+    if not online_payment_provider == 'disabled':
+        if invoice.invoice.Status == 'sent':
+            header_tools.append(os_gui.get_button(
+                'noicon',
+                URL('mollie', 'invoice_pay', vars={'iID':iID}),
+                title=T("Pay now"),
+                _class='pull-right',
+                btn_class="btn-success",
+                btn_size=''
+            ))
 
     back = os_gui.get_button(
         'back',
